@@ -674,7 +674,7 @@ class Distribution(object):
 
         # Sign it!
         private_key = rsa.PrivateKey.load_pkcs1(private_key_string)
-        signature = rsa.sign(str(message), private_key, 'SHA-1')
+        signature = rsa.sign(message.encode(), private_key, 'SHA-1')
         return signature
 
     @staticmethod
